@@ -1,0 +1,245 @@
+/*
+ * $Id: tabprop.fmg $
+ */
+/*
+ * ooHG source code:
+ * ooHG IDE+ form generator
+ *
+ * Copyright 2014-2020 Fernando Yurisich <fyurisich@oohg.org> and contributors of
+ * the Object Oriented (x)Harbour GUI (aka OOHG) Project, https://oohg.github.io
+ *
+ * Based upon:
+ * Harbour Minigui Ide
+ * Copyright 2002-2014 Ciro Vargas Clemow <cvc@oohg.org>
+ *
+ * Portions of this project are based upon:
+ *    "Harbour MiniGUI Extended Edition Library"
+ *       Copyright 2005-2020 MiniGUI Team, http://hmgextended.com
+ *    "Harbour GUI framework for Win32"
+ *       Copyright 2001 Alexander S.Kresin <alex@kresin.ru>
+ *       Copyright 2001 Antonio Linares <alinares@fivetech.com>
+ *    "Harbour MiniGUI"
+ *       Copyright 2002-2016 Roberto Lopez <mail.box.hmg@gmail.com>
+ *    "Harbour Project"
+ *       Copyright 1999-2020 Contributors, https://harbour.github.io/
+ */
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this software; see the file LICENSE.txt. If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1335, USA (or download from http://www.gnu.org/licenses/).
+ *
+ * As a special exception, the ooHG Project gives permission for
+ * additional uses of the text contained in its release of ooHG.
+ *
+ * The exception is that, if you link the ooHG libraries with other
+ * files to produce an executable, this does not by itself cause the
+ * resulting executable to be covered by the GNU General Public License.
+ * Your use of that executable is in no way restricted on account of
+ * linking the ooHG library code into it.
+ *
+ * This exception does not however invalidate any other reasons why
+ * the executable file might be covered by the GNU General Public License.
+ *
+ * This exception applies only to the code released by the ooHG
+ * Project under the name ooHG. If you copy code from other
+ * ooHG Project or Free Software Foundation releases into a copy of
+ * ooHG, as the General Public License permits, the exception does
+ * not apply to the code that you add in this way. To avoid misleading
+ * anyone as to the status of such modified files, you must delete
+ * this exception notice from them.
+ *
+ * If you write modifications of your own for ooHG, it is your choice
+ * whether to permit this exception to apply to your modifications.
+ * If you do not wish that, delete this exception notice.
+ */
+
+DEFINE WINDOW TEMPLATE ;
+   OBJ oTabProp ;
+   AT 132, 235 ;
+   WIDTH 430 ;
+   HEIGHT 480 ;
+   TITLE ( DQM( ::cFName + ".fmg" ) + i18n( " - Properties of Control " ) + ::aName[j] ) ;
+   BACKCOLOR ::myIde:aSystemColor ;
+   MODAL ;
+   NOSIZE ;
+   CLIENTAREA ;
+   ON INIT ::LoadTabpageProperties( j, oTabProp )
+
+   @ 10, 10 FRAME Frame_1 ;
+      WIDTH 410 ;
+      HEIGHT 80 ;
+      CAPTION 'DEFINE TAB Properties' ;
+      TRANSPARENT
+
+   @ 41, 20 BUTTON Button_1 ;
+      ACTION ::TabUpdate( j, oControl, oTabProp ) ;
+      WIDTH 110 ;
+      HEIGHT 28 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TOOLTIP i18n( "Edits the TAB's properties." ) ;
+      CAPTION i18n( 'Edit' )
+
+   @ 41, 160 BUTTON Button_2 ;
+      ACTION ::AddTabPage( j, oControl, oTabProp ) ;
+      WIDTH 110 ;
+      HEIGHT 28 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TOOLTIP i18n( "Adds a new page after the last." ) ;
+      CAPTION i18n( 'PageCount ++' )
+
+   @ 41, 300 BUTTON Button_3 ;
+      ACTION ::DeleteTabpage( j, oControl, oTabProp ) ;
+      WIDTH 110 ;
+      HEIGHT 28 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TOOLTIP i18n( "Deletes the last page." ) ;
+      CAPTION i18n( 'PageCount --' )
+
+   @ 110, 10 FRAME Frame_2 ;
+      WIDTH 410 ;
+      HEIGHT 320 ;
+      CAPTION 'DEFINE PAGE Properties' ;
+      TRANSPARENT
+
+   @ 143, 20 LABEL Label_0 ;
+      VALUE 'Page:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 140, 90 SPINNER Spinner_1 ;
+      RANGE 1, 2 ;
+      VALUE 1 ;
+      WIDTH 60 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      ON CHANGE ::LoadTabpageProperties( j, oTabProp )
+
+   @ 138, 300 BUTTON Button_5 ;
+      ACTION ::SaveTabpageProperties( j, oTabProp ) ;
+      WIDTH 110 ;
+      HEIGHT 28 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      DISABLED ;
+      CAPTION i18n( "Save" )
+
+   @ 183, 20 LABEL Label_1 ;
+      VALUE 'Caption:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 180, 90 EDITBOX Edit_1 ;
+      WIDTH 320 ;
+      HEIGHT 40 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      MAXLENGTH 1000 ;
+      ON CHANGE oTabProp:Button_5:Enabled := .T. ;
+      NOVSCROLL
+
+   @ 233, 20 LABEL Label_2 ;
+      VALUE 'Image:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 230, 90 EDITBOX Edit_2 ;
+      WIDTH 320 ;
+      HEIGHT 40 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      MAXLENGTH 1000 ;
+      ON CHANGE oTabProp:Button_5:Enabled := .T. ;
+      NOVSCROLL
+
+   @ 283, 20 LABEL Label_3 ;
+      VALUE 'Name:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 280, 90 EDITBOX Edit_3 ;
+      WIDTH 320 ;
+      HEIGHT 40 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      MAXLENGTH 1000 ;
+      ON CHANGE oTabProp:Button_5:Enabled := .T. ;
+      NOVSCROLL
+
+   @ 333, 20 LABEL Label_4 ;
+      VALUE 'Obj:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 330, 90 EDITBOX Edit_4 ;
+      WIDTH 320 ;
+      HEIGHT 40 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      MAXLENGTH 1000 ;
+      ON CHANGE oTabProp:Button_5:Enabled := .T. ;
+      NOVSCROLL
+
+   @ 383, 20 LABEL Label_5 ;
+      VALUE 'SubClass:' ;
+      WIDTH 65 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 380, 90 EDITBOX Edit_5 ;
+      WIDTH 320 ;
+      HEIGHT 40 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      MAXLENGTH 500 ;
+      ON CHANGE oTabProp:Button_5:Enabled := .T. ;
+      NOVSCROLL
+
+   @ 443, 20 LABEL Label_6 ;
+      VALUE ( 'Page count: ' + LTrim( Str( oControl:ItemCount ) ) ) ;
+      WIDTH 260 ;
+      HEIGHT 24 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      TRANSPARENT
+
+   @ 440, 300 BUTTON Button_4 ;
+      ACTION iif( oTabProp:Button_5:Enabled, iif( MsgStop( i18n( "Discard changes?" ), "OOHG IDE+" ), ThisWindow.Release(), NIL ), ThisWindow.Release() ) ;
+      WIDTH 110 ;
+      HEIGHT 28 ;
+      FONT 'Arial' ;
+      SIZE 9 ;
+      CAPTION i18n( 'Exit' )
+
+END WINDOW

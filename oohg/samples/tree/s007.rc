@@ -1,0 +1,18 @@
+/*
+ * This resource file is a part of Tree Sample n° 7
+ * Author: Fernando Yurisich <fyurisich@oohg.org>
+ * Licensed under The Code Project Open License (CPOL) 1.02
+ * See <http://www.codeproject.com/info/cpol10.aspx>
+ *
+ * Visit us at https://github.com/oohg/samples
+ *
+ */
+
+WATCH    BITMAP  WATCH.BMP
+WINDOW   BITMAP  WINDOW.BMP
+LED_OFF  BITMAP  LED_OFF.BMP
+LED_ON   BITMAP  LED_ON.BMP
+
+/*
+ * EOF
+ */

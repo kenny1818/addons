@@ -1,0 +1,353 @@
+//
+// $Id: oohg_bcc.rc $
+//
+// Use CompileRes_bcc.bat to build oohg.res from this file using Borland compiler
+
+#include "_oohg_resconfig.h"
+
+// CURSORS
+
+#ifdef __OOHG_USE_V1_RESOURCES
+MINIGUI_FINGER          CURSOR         finger.cur
+#else
+MINIGUI_FINGER          CURSOR         finger_v2.cur
+#endif
+MINIGUI_DRAGUP          CURSOR         dragup.cur
+MINIGUI_DRAGDOWN        CURSOR         dragdown.cur
+DRAG_NO                 CURSOR         dragno.cur
+DRAG_ARROW_COPY         CURSOR         dragcopy.cur
+DRAG_ARROW_MOVE         CURSOR         dragmove.cur
+
+// EDIT COMMAND IMAGE BUTTONS
+
+MINIGUI_EDIT_CANCEL     BITMAP         edit_cancel.bmp
+MINIGUI_EDIT_CLOSE      BITMAP         edit_close.bmp
+MINIGUI_EDIT_COPY       BITMAP         edit_copy.bmp
+MINIGUI_EDIT_DELETE     BITMAP         edit_delete.bmp
+MINIGUI_EDIT_EDIT       BITMAP         edit_edit.bmp
+MINIGUI_EDIT_FIND       BITMAP         edit_find.bmp
+MINIGUI_EDIT_NEW        BITMAP         edit_new.bmp
+MINIGUI_EDIT_OK         BITMAP         edit_ok.bmp
+MINIGUI_EDIT_PRINT      BITMAP         edit_print.bmp
+MINIGUI_EDIT_ADD        BITMAP         edit_add.bmp
+MINIGUI_EDIT_DEL        BITMAP         edit_del.bmp
+MINIGUI_EDIT_SET        BITMAP         edit_set.bmp
+MINIGUI_EDIT_UNDO       BITMAP         edit_undo.bmp
+
+// MISCELANEOUS
+
+ZZZ_AAAOOHG             ICON           oohg.ico
+#ifdef __OOHG_USE_V1_RESOURCES
+ZZZ_AAAWINDOW           ICON           window.ico
+#else
+ZZZ_AAAWINDOW           ICON           window_v2.ico
+#endif
+ZZZ_LED_ON              ICON           led_on.ico
+ZZZ_LED_OFF             ICON           led_off.ico
+
+// HBPRINTER PREVIEW IMAGE BUTTONS
+
+zzz_printicon           ICON           print.ico
+hbprint_end             BITMAP         hbprint_end.bmp
+hbprint_next            BITMAP         hbprint_next.bmp
+hbprint_top             BITMAP         hbprint_top.bmp
+hbprint_back            BITMAP         hbprint_back.bmp
+hbprint_close           BITMAP         hbprint_close.bmp
+hbprint_print           BITMAP         hbprint_print.bmp
+hbprint_save            BITMAP         hbprint_save.bmp
+hbprint_zoomin          BITMAP         hbprint_zoomin.bmp
+hbprint_zoomout         BITMAP         hbprint_zoomout.bmp
+hbprint_option          BITMAP         hbprint_option.bmp
+
+// HBPRINTER REPLACE STRINGS
+// define one or more if these items to replace the value for the current language
+// useful if you're not satisfied with the hardwired value
+
+/*
+#define HBPRINTER_PREVIEW      1
+#define HBPRINTER_CANCEL       2
+#define HBPRINTER_PRINT        3
+#define HBPRINTER_SAVE         4
+#define HBPRINTER_FIRST        5
+#define HBPRINTER_PREVIOUS     6
+#define HBPRINTER_NEXT         7
+#define HBPRINTER_LAST         8
+#define HBPRINTER_ZOOMIN       9
+#define HBPRINTER_ZOOMOUT      10
+#define HBPRINTER_OPTIONS      11
+#define HBPRINTER_GOTOPAGE     12
+#define HBPRINTER_PAGEPREVIEW  13
+#define HBPRINTER_THUMBPREVIEW 14
+#define HBPRINTER_PAGE         15
+#define HBPRINTER_PRTCURRENT   16
+#define HBPRINTER_PAGES        17
+#define HBPRINTER_NOMOREZOOM   18
+#define HBPRINTER_PRTOPTIONS   19
+#define HBPRINTER_PRTFROM      20
+#define HBPRINTER_PRTTO        21
+#define HBPRINTER_COPIES       22
+#define HBPRINTER_COLLATION    23
+#define HBPRINTER_EVERYSEQ     24
+#define HBPRINTER_ONLYODD      25
+#define HBPRINTER_ONLYEVEN     26
+#define HBPRINTER_EVERYODD     27
+#define HBPRINTER_EVERYEVEN    28
+#define HBPRINTER_PRINTING     29
+#define HBPRINTER_WAITPAPER    30
+#define HBPRINTER_PRESSOK      31
+#define HBPRINTER_DONE         32
+#define HBPRINTER_SAVEAS       33
+#define HBPRINTER_SAVEALL      34
+#define HBPRINTER_EMFFILES     35
+#define HBPRINTER_ALLFILES     36
+#define HBPRINTER_NOTSUPPORTED 37
+#define HBPRINTER_UNKNOWN      38
+#define HBPRINTER_ORIENTATION  39
+#define HBPRINTER_PAPERSIZE    40
+#define HBPRINTER_SCALE        41
+#define HBPRINTER_COPIES       42
+#define HBPRINTER_DEFSOURCE    43
+#define HBPRINTER_PRINTQUALITY 44
+#define HBPRINTER_COLOR        45
+#define HBPRINTER_DUPLEX       46
+#define HBPRINTER_COLLATE      47
+#define HBPRINTER_PAPERLENGTH  48
+#define HBPRINTER_PAPERWIDTH   49
+#define HBPRINTER_SELECTFOLDER 50
+#define HBPRINTER_REPORTEMPTY  51
+#define HBPRINTER_OK           52
+
+STRINGTABLE
+{
+        HBPRINTER_PREVIEW,      "Preview"
+        HBPRINTER_CANCEL,       "&Cancel"
+        HBPRINTER_PRINT,        "&Print"
+        HBPRINTER_SAVE,         "&Save"
+        HBPRINTER_FIRST,        "&First"
+        HBPRINTER_PREVIOUS,     "P&revious"
+        HBPRINTER_NEXT,         "&Next"
+        HBPRINTER_LAST,         "&Last"
+        HBPRINTER_ZOOMIN,       "Zoom In"
+        HBPRINTER_ZOOMOUT,      "Zoom Out"
+        HBPRINTER_OPTIONS,      "&Options"
+        HBPRINTER_GOTOPAGE,     "Go To Page"
+        HBPRINTER_PAGEPREVIEW,  "Page preview "
+        HBPRINTER_THUMBPREVIEW, "Thumbnails preview"
+        HBPRINTER_PAGE,         "Page"
+        HBPRINTER_PRTCURRENT,   "Print current page only"
+        HBPRINTER_PAGES,        "Pages:"
+        HBPRINTER_NOMOREZOOM,   "No more zoom!"
+        HBPRINTER_PRTOPTIONS,   "Print options"
+        HBPRINTER_PRTFROM,      "Print from"
+        HBPRINTER_PRTTO,        "to"
+        HBPRINTER_COPIES,       "Copies"
+        HBPRINTER_COLLATION,    "Collation"
+        HBPRINTER_EVERYSEQ,     "Everything, sequential"
+        HBPRINTER_ONLYODD,      "Only odd pages"
+        HBPRINTER_ONLYEVEN,     "Only even pages"
+        HBPRINTER_EVERYODD,     "Everything, odd pages first"
+        HBPRINTER_EVERYEVEN,    "Everything, even pages first"
+        HBPRINTER_PRINTING,     "Printing..."
+        HBPRINTER_WAITPAPER,    "Waiting for paper change..."
+        HBPRINTER_PRESSOK,      "Press OK to continue."
+        HBPRINTER_DONE,         "Done!"
+        HBPRINTER_SAVEAS,       "Save as..."
+        HBPRINTER_SAVEALL,      "Save all"
+        HBPRINTER_EMFFILES,     "EMF files"
+        HBPRINTER_ALLFILES,     "All files"
+        HBPRINTER_NOTSUPPORTED, "Unsupported setting:"
+        HBPRINTER_UNKNOWN,      "UNKNOWN"
+        HBPRINTER_ORIENTATION,  "ORIENTATION"
+        HBPRINTER_PAPERSIZE,    "PAPERSIZE"
+        HBPRINTER_SCALE,        "SCALE"
+        HBPRINTER_COPIES,       "COPIES"
+        HBPRINTER_DEFSOURCE,    "DEFAULTSOURCE"
+        HBPRINTER_PRINTQUALITY, "PRINTQUALITY"
+        HBPRINTER_COLOR,        "COLOR"
+        HBPRINTER_DUPLEX,       "DUPLEX"
+        HBPRINTER_COLLATE,      "COLLATE"
+        HBPRINTER_PAPERLENGTH,  "PAPERLENGTH"
+        HBPRINTER_PAPERWIDTH,   "PAPERWIDTH"
+        HBPRINTER_SELECTFOLDER, "Select a folder"
+        HBPRINTER_REPORTEMPTY,  "Report is empty!"
+        HBPRINTER_OK,           "&OK"
+}
+*/
+
+// MINIPRINT PRINT PREVIEW IMAGE BUTTONS
+
+#ifdef __MINIPRINT_USE_V1_RESOURCES
+   HP_BACK                 BITMAP          hp_back.bmp
+   HP_CLOSE                BITMAP          hp_close.bmp
+   HP_END                  BITMAP          hp_end.bmp
+   HP_GLASS                CURSOR          hp_glass.cur
+   HP_GOPAGE               BITMAP          hp_gopage.bmp
+   HP_NEXT                 BITMAP          hp_next.bmp
+   HP_PRINT                BITMAP          hp_print.bmp
+   HP_SAVE                 BITMAP          hp_save.bmp
+   HP_THUMBNAIL            BITMAP          hp_thumbnail.bmp
+   HP_TOP                  BITMAP          hp_top.bmp
+   HP_ZOOM                 BITMAP          hp_zoom.bmp
+#else
+   HP_BACK                 BITMAP          hp_back_v2.bmp
+   HP_CLOSE                BITMAP          hp_close_v2.bmp
+   HP_END                  BITMAP          hp_end_v2.bmp
+   HP_GLASS                CURSOR          hp_glass_v2.cur
+   HP_GOPAGE               BITMAP          hp_gopage_v2.bmp
+   HP_NEXT                 BITMAP          hp_next_v2.bmp
+   HP_PRINT                BITMAP          hp_print_v2.bmp
+   HP_SAVE                 BITMAP          hp_save_v2.bmp
+   HP_THUMBNAIL            BITMAP          hp_thumbnail_v2.bmp
+   HP_TOP                  BITMAP          hp_top_v2.bmp
+   HP_ZOOM                 BITMAP          hp_zoom_v2.bmp
+#endif
+
+// MINIPRINT REPLACE STRINGS
+// define one or more if these items to replace the value for the current language
+// useful if you're not satisfied with the hardwired value
+
+/*
+#define MINIPRINT_PAGE     101
+#define MINIPRINT_PREVIEW  102
+#define MINIPRINT_FIRST    103
+#define MINIPRINT_PREVIOUS 104
+#define MINIPRINT_NEXT     105
+#define MINIPRINT_LAST     106
+#define MINIPRINT_GOTOPAGE 107
+#define MINIPRINT_ZOOM     108
+#define MINIPRINT_PRINT    109
+#define MINIPRINT_PAGENUM  110
+#define MINIPRINT_OK       111
+#define MINIPRINT_CANCEL   112
+#define MINIPRINT_SELECT   113
+#define MINIPRINT_COLLATE  114
+#define MINIPRINT_RANGE    115
+#define MINIPRINT_ALL      116
+#define MINIPRINT_PAGES    117
+#define MINIPRINT_FROM     118
+#define MINIPRINT_TO       119
+#define MINIPRINT_COPIES   120
+#define MINIPRINT_RANGEALL 121
+#define MINIPRINT_ONLYODDS 122
+#define MINIPRINT_ONLYEVEN 123
+#define MINIPRINT_YES      124
+#define MINIPRINT_NO       125
+#define MINIPRINT_CLOSE    126
+#define MINIPRINT_SAVE     127
+#define MINIPRINT_THUMBS   128
+#define MINIPRINT_WAITHMBS 129
+#define MINIPRINT_WARNING  130
+#define MINIPRINT_SELFLDR  131
+#define MINIPRINT_NOPRINT  132
+#define MINIPRINT_CLOSING  133
+#define MINIPRINT_DRVERROR 134
+#define MINIPRINT_ERRCODE  135
+
+STRINGTABLE
+{
+        MINIPRINT_PAGE,      'Page'
+        MINIPRINT_PREVIEW,   'Print Preview'
+        MINIPRINT_FIRST,     'First Page [HOME]'
+        MINIPRINT_PREVIOUS,  'Previous Page [PGUP]'
+        MINIPRINT_NEXT,      'Next Page [PGDN]'
+        MINIPRINT_LAST,      'Last Page [END]'
+        MINIPRINT_GOTOPAGE,  'Go To Page'
+        MINIPRINT_ZOOM,      'Zoom'
+        MINIPRINT_PRINT,     'Print'
+        MINIPRINT_PAGENUM,   'Page Number'
+        MINIPRINT_OK,        'Ok'
+        MINIPRINT_CANCEL,    'Cancel'
+        MINIPRINT_SELECT,    'Select Printer'
+        MINIPRINT_COLLATE,   'Collate Copies'
+        MINIPRINT_RANGE,     'Print Range'
+        MINIPRINT_ALL,       'All'
+        MINIPRINT_PAGES,     'Pages'
+        MINIPRINT_FROM,      'From'
+        MINIPRINT_TO,        'To'
+        MINIPRINT_COPIES,    'Copies'
+        MINIPRINT_RANGEALL,  'All Range'
+        MINIPRINT_ONLYODDS,  'Odd Pages Only'
+        MINIPRINT_ONLYEVEN,  'Even Pages Only'
+        MINIPRINT_YES,       'Yes'
+        MINIPRINT_NO,        'No'
+        MINIPRINT_CLOSE,     'Close'
+        MINIPRINT_SAVE,      'Save'
+        MINIPRINT_THUMBS,    'Thumbnails'
+        MINIPRINT_WAITHMBS,  'Generating Thumbnails... Please Wait...'
+        MINIPRINT_WARNING,   'Warning'
+        MINIPRINT_SELFLDR,   'Select a Folder'
+        MINIPRINT_NOPRINT,   'No printer is installed in this system.'
+        MINIPRINT_CLOSING,   'Closing preview... Please Wait...'
+        MINIPRINT_DRVERROR,  'Error'
+        MINIPRINT_ERRCODE,   'Printer configuration failed with code: '
+}
+*/
+
+// IMAGES FOR TGRIDCONTROL BUTTONS
+
+EDIT_OK_16              BITMAP         edit_ok_16.bmp
+EDIT_CANCEL_16          BITMAP         edit_cancel_16.bmp
+
+// MANIFEST ALLOW THE STYLING OF CONTROLS BY THE OS
+
+#include <winuser.h>
+
+#ifndef RT_MANIFEST
+#define RT_MANIFEST 24
+#define CREATEPROCESS_MANIFEST_RESOURCE_ID  1
+#endif /* RT_MANIFEST */
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Windows.Manifest"
+
+// VERSIONINFO
+
+#ifdef RT_VERSION
+
+#ifndef __VERSION_INFO
+
+/* NOTE: BCC 5.5 has an RC preprocessor bug that in certain cases will append
+         a trash byte to the return value of this macro. Such trash byte
+         will result in a broken manifest record and the executable rejected
+         by the OS (f.e. Windows 10) to run. It can be "fixed" by using
+         a macro name shorter or longer by one character. But, instead of
+         such non-zero-cost hacks, please switch to a modern compiler. */
+#define OOHG_MACRO2STRING( macro )   MACRO2STR( macro )
+#define MACRO2STR( macro )           #macro
+
+#include "oohgversion.h"
+
+#define OOHG_VER_PROD_STR            OOHG_MACRO2STRING( OOHG_VER_MAJOR ) "." OOHG_MACRO2STRING( OOHG_VER_MINOR ) "." OOHG_MACRO2STRING( OOHG_VER_RELEASE ) ".0"
+#define OOHG_VER_FILE                OOHG_VER_PROD
+#define OOHG_VER_FILE_STR            OOHG_VER_PROD_STR
+
+#include <winver.h>
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     OOHG_VER_FILE
+PRODUCTVERSION  OOHG_VER_PROD
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       0
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_APP
+BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+      BLOCK "040904B0"  /* LANGUAGE: US English (0x0409), ENCODING: Unicode (1200/0x04B0) */
+      BEGIN
+         VALUE "Comments",         "See LICENSE.txt for licensing terms." "\0"
+         VALUE "CompanyName",      OOHG_COMPANY_NAME "\0"
+         VALUE "FileDescription",  OOHG_NAME "\0"
+         VALUE "FileVersion",      OOHG_VER_FILE_STR "\0"
+         VALUE "LegalCopyright",   "© 2005-2021 OOHG Development Team" "\0"
+         VALUE "ProductName",      OOHG_NAME "\0"
+         VALUE "ProductVersion",   OOHG_VER_PROD_STR "\0"
+      END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+      VALUE "Translation", 0x0409, 0x04B0  /* LANGUAGE: US English (0x0409), ENCODING: Unicode (1200/0x04B0) */
+   END
+END
+
+#endif /* __VERSION_INFO */
+
+#endif /* RT_VERSION */

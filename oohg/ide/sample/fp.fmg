@@ -1,0 +1,328 @@
+
+* ooHG IDE Plus form generated code
+* (c) 2003-2018 Ciro Vargas Clemow <cvc@oohg.org>
+
+DEFINE WINDOW TEMPLATE ;
+   AT 114, 67 ;
+   WIDTH 715 ;
+   HEIGHT 448 ;
+   TITLE 'Test form' ;
+   MAIN ;
+   ON INIT prgspi() ;
+   ON RELEASE msgbox('on release') ;
+   BACKCOLOR {0, 0, 255} ;
+   FONT 'arial' ;
+   SIZE 10
+
+   DEFINE STATUSBAR
+
+      STATUSITEM 'Statusbar AbCdEfGhIjKlMnOpQrStUvWxYz' ;
+         WIDTH 180
+
+      KEYBOARD
+
+      DATE ;
+         WIDTH 80
+
+      CLOCK ;
+         WIDTH 80
+
+   END STATUSBAR
+
+   DEFINE MAIN MENU
+
+      POPUP 'first popup'
+
+         ITEM 'subx' ;
+            NAME 'subx' ;
+            ACTION msgbox('subx') ;
+            DISABLED
+
+         POPUP 'sub1'
+
+            ITEM 'sub11' ;
+               NAME 'prueba1' ;
+               ACTION msgbox('sub11') ;
+               CHECKED
+
+            ITEM 'sub12' ;
+               ACTION msgbox('12')
+
+            SEPARATOR
+
+            ITEM 'sub13' ;
+               ACTION msgbox('sub13')
+
+         END POPUP
+
+         ITEM 'sub2' ;
+            ACTION msgbox('sub2 ')
+
+         ITEM 'suby1a' ;
+            NAME 'y1a' ;
+            ACTION msgbox('y') ;
+            CHECKED
+
+      END POPUP
+
+      POPUP 'second popup'
+
+         ITEM 'sub3' ;
+            ACTION msgbox('sub3')
+
+         ITEM 'sub4' ;
+            ACTION msgbox('sub4')
+
+         SEPARATOR
+
+         ITEM 'sub5a' ;
+            ACTION msgbox('sub5')
+
+         POPUP 'nuevo pop'
+
+            ITEM 'uno' ;
+               ACTION nil
+
+            ITEM 'dos' ;
+               ACTION nil
+
+            ITEM 'option' ;
+               ACTION nil
+
+         END POPUP
+
+      END POPUP
+
+      POPUP 'other popup'
+
+         ITEM 'othe1' ;
+            ACTION nil ;
+            HILITED
+
+         ITEM 'othe2' ;
+            ACTION nil
+
+      END POPUP
+
+   END MENU
+
+   DEFINE CONTEXT MENU
+
+      ITEM 'hola' ;
+         NAME 'hola' ;
+         ACTION msgbox("hola")
+
+      ITEM 'salida' ;
+         NAME 'salida' ;
+         ACTION msgbox("Bye")
+
+      ITEM 'contextual' ;
+         NAME 'context' ;
+         ACTION msgbox("menu contextual")
+
+   END MENU
+
+   DEFINE NOTIFY MENU
+
+      ITEM 'about' ;
+         ACTION msgbox('about')
+
+      SEPARATOR
+
+      ITEM 'exit' ;
+         ACTION msgbox('exit')
+
+   END MENU
+
+   @ 75, 255 EDITBOX edit_101 ;
+      WIDTH 120 ;
+      HEIGHT 120 ;
+      VALUE 'ooHG IDE plus' ;
+      FONT 'arial' ;
+      SIZE 12 ;
+      TOOLTIP 'edit help' ;
+      MAXLENGTH 40
+
+   @ 110, 86 TEXTBOX text_101 ;
+      WIDTH 120 ;
+      HEIGHT 24 ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'tooltip text_1' ;
+      NUMERIC ;
+      MAXLENGTH 30
+
+   @ 40, 87 BUTTON button_101 ;
+      WIDTH 100 ;
+      HEIGHT 28 ;
+      CAPTION 'Newform OK.' ;
+      ACTION p2() ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'ayuda tooltip' ;
+      HELPID 10
+
+   @ 39, 404 CHECKBOX checkbox_101 ;
+      WIDTH 100 ;
+      HEIGHT 28 ;
+      CAPTION 'checkbox_1' ;
+      VALUE .F. ;
+      FONT 'Arial' ;
+      SIZE 10 ;
+      TOOLTIP 'tooltip checkbox'
+
+   @ 213, 23 LISTBOX list_101 ;
+      WIDTH 92 ;
+      HEIGHT 80 ;
+      ITEMS {'L1','L2','L3','L4'} ;
+      VALUE 1 ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'ayuda list '
+
+   @ 77, 401 COMBOBOX combo_101 ;
+      WIDTH 100 ;
+      ITEMS {'c1','c2','c3','c4'} ;
+      VALUE 1 ;
+      FONT 'Arial' ;
+      SIZE 8 ;
+      TOOLTIP 'tooltip combo'
+
+   @ 141, 86 CHECKBUTTON checkbtn_101 ;
+      CAPTION ' check' ;
+      WIDTH 120 ;
+      HEIGHT 28 ;
+      VALUE .F. ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'tooltip checkbtn'
+
+   @ 145, 422 IMAGE image_101 ;
+      PICTURE 'demo.bmp' ;
+      WIDTH 94 ;
+      HEIGHT 83
+
+   @ 244, 126 ANIMATEBOX animate_101 ;
+      WIDTH 100 ;
+      HEIGHT 50 ;
+      CENTER
+
+   @ 30, 250 DATEPICKER datepicker_101 ;
+      WIDTH 120 ;
+      HEIGHT 24 ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'ayuda datepicker'
+
+   @ 112, 31 LABEL label_101 ;
+      WIDTH 44 ;
+      HEIGHT 20 ;
+      VALUE 'Item #' ;
+      FONT 'Arial' ;
+      SIZE 10 ;
+      BACKCOLOR {0 , 0 , 255 } ;
+      HELPID 10
+
+   @ 214, 264 PLAYER player_101 ;
+      WIDTH 100 ;
+      HEIGHT 100 ;
+      FILE 'sample.mid'
+
+   @ 322, 25 CHECKBUTTON piccheckbutt_102 ;
+      PICTURE 'imagecbu.bmp' ;
+      WIDTH 30 ;
+      HEIGHT 30 ;
+      VALUE .F. ;
+      TOOLTIP 'tooltip piccheck'
+
+   @ 202, 158 BUTTON picbutt_102 ;
+      PICTURE 'hp_zoom.bmp' ;
+      ACTION msginfo('Pic button pressed') ;
+      WIDTH 30 ;
+      HEIGHT 30 ;
+      TOOLTIP 'ayuda picbutt'
+
+   @ 82, 548 PROGRESSBAR progressbar_101 ;
+      RANGE 1,65000 ;
+      WIDTH 120 ;
+      HEIGHT 26 ;
+      TOOLTIP 'ayuda progressbar'
+
+   @ 265, 567 SLIDER slider_101 ;
+      RANGE 1,10 ;
+      VALUE 5 ;
+      WIDTH 121 ;
+      HEIGHT 39 ;
+      TOOLTIP 'ayuda tooltip'
+
+   @ 42, 547 SPINNER spinner_101 ;
+      RANGE 0,200 ;
+      VALUE 100 ;
+      WIDTH 120 ;
+      HEIGHT 24 ;
+      FONT 'arial' ;
+      SIZE 12 ;
+      TOOLTIP 'ayuda spinner tooltip'
+
+   @ 135, 571 RADIOGROUP radiogroup_101 ;
+      OPTIONS {'op1','op2'} ;
+      VALUE 1 ;
+      WIDTH 112 ;
+      SPACING 20 ;
+      FONT 'arial' ;
+      SIZE 10 ;
+      TOOLTIP 'ayuda'
+
+   @ 249, 411 GRID grid_101 ;
+      WIDTH 151 ;
+      HEIGHT 92 ;
+      HEADERS {"one","two"} ;
+      WIDTHS {90,60} ;
+      ITEMS { {"",""} } ;
+      FONT 'arial' ;
+      SIZE 12
+
+   @ 325, 68 LABEL label_105 ;
+      WIDTH 168 ;
+      HEIGHT 20 ;
+      VALUE 'right-click context menu' ;
+      FONT 'Arial' ;
+      SIZE 10 ;
+      BACKCOLOR {0 , 0 , 255 } ;
+      CENTERALIGN
+
+   @ 75, 86 BUTTON button_102 ;
+      WIDTH 100 ;
+      HEIGHT 28 ;
+      CAPTION 'Repdemo' ;
+      ACTION rep() ;
+      FONT 'Arial' ;
+      SIZE 10 ;
+      TOOLTIP 'Report tooltip'
+
+   @ 8, 22 FRAME frame_101 ;
+      WIDTH 205 ;
+      HEIGHT 168 ;
+      CAPTION 'Frame # 1'
+
+   @ 7, 243 FRAME frame_102 ;
+      WIDTH 460 ;
+      HEIGHT 354 ;
+      CAPTION 'Frame #3'
+
+   @ 119, 390 FRAME frame_103 ;
+      WIDTH 301 ;
+      HEIGHT 225 ;
+      CAPTION 'Frame # 3 - 1'
+
+   @ 180, 4 FRAME frame_104 ;
+      WIDTH 236 ;
+      HEIGHT 180 ;
+      CAPTION 'Frame # 2'
+
+   *****@ 0, 0 TIMER timer_1 ;
+   DEFINE TIMER timer_1 ;
+      INTERVAL 20000 ;
+      ACTION msgbox("timer each 20 seg")
+
+END WINDOW

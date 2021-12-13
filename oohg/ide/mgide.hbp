@@ -1,0 +1,43 @@
+#
+# $Id: mgide.hbp $
+#
+
+# name of output file
+-ooide
+
+# compilation is incremental (hidden .hmk folder is created)
+-inc
+
+# check all errors
+-w3
+-es2
+
+# other harbour´s flags
+-n1 -q0
+
+#alerts on exit
+-beep
+
+# uncomment the following lines to get detailed build info
+#-trace
+#-info
+
+# libs
+${HG_ROOT}\oohg.hbc
+
+# path to fmg files
+-ifmgs
+
+#gt
+-gui
+
+# files to compile and link
+prgs\mgide.prg
+prgs\dbucvc.prg
+prgs\formedit.prg
+prgs\menued.prg
+prgs\toolbed.prg
+
+# this file must be compiled with build.bat in order to include oohg's resources
+
+#EOF
