@@ -1,0 +1,13 @@
+
+DBFINDEX      ICON      "DBFIndex.ico"
+
+CLRKEYS       BITMAP    "ClrKeys.bmp"
+FOLDER        BITMAP    "Folder.bmp"
+INDEX         BITMAP    "Index.bmp"
+EXIT          BITMAP    "Exit_48.bmp"
+
+
+
+
+
+

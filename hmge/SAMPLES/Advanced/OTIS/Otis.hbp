@@ -1,0 +1,18 @@
+#
+# Otis.hbp
+#
+
+-hblib
+
+-inc
+-workdir=c:/minigui/lib/hbmk/obj
+
+-o./Test/Otis
+
+-Ic:/minigui/include
+
+-warn=max
+
+-w2 -es2 -q0
+
+Otis.prg
