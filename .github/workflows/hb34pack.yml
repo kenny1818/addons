@@ -49,13 +49,20 @@ jobs:
 
     - name: Load Source Code
       env:
-         REPO: JoseQuintas/addons
+         REPO_ADDONS:     https://github.com/JoseQuintas/addons
+         REPO_HWGUI:      https://github.com/JoseQuintas/hwgui
+         REPO_SEFAZCLASS: https://github.com/JoseQuintas/sefazclass
+         REPO_WVGTST:     https://github.com/JoseQuintas/wvgtst
+         PATH_ADDONS:     c:\temp\harbour\addons
+         PATH_HWGUI:      c:\temp\harbour\addons\hwgui
+         PATH_SEFAZCLASS: c:\temp\harbour\addons\sefazclass
+         PATH_WVGTST:     c:\temp\harbour\addons\wvgtst
       run: |
          c:
-         git clone https://github.com/$env:repo c:\temp\harbour\addons --depth 1
-         git clone https://github.com/JoseQuintas/hwgui c:\temp\harbour\addons\hwgui
-         git clone https://github.com/JoseQuintas/sefazclass c:\temp\harbour\addons\sefazclass
-         git clone https://github.com/JoseQuintas/wvgtst c:\temp\harbour\addons\wvgtst
+         git clone $env:REPO_ADDONS     $env:PATH_ADDONS     --depth 1
+         git clone $env:REPO_HWGUI      $env:PATH_HWGUI      --depth 1
+         git clone $env:REPO_SEFAZCLASS $env:PATH_SEFAZCLASS --depth 1
+         git clone $env:REPO_WVGTST     $env:PATH_WVGTST     --depth 1
 
     - name: Build All
       env:
