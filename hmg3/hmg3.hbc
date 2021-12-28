@@ -2,6 +2,7 @@
 
 #####PRGFLAGS=-DCOMPILE_HMG_UNICODE
 #####CFLAGS=-DCOMPILE_HMG_UNICODE
+RESFLAGS=-DWIN32
 
 # paths
 
@@ -64,5 +65,4 @@ libs=xhb.hbc
 
 # link compiled resources
 
-#sources=${hb_curdir}_temp.o
-
+#{!hblib}sources=resources/hmg3.rc
