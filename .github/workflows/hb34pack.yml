@@ -1,6 +1,6 @@
 #
-# use: JoseQuintas/addons/mingw_0703
-# use: JoseQuintas/addons/hb34_0703
+# use: mingw_0703.yml
+# use: hb34_0703.yml
 
 name: hb34pack
 
@@ -22,7 +22,7 @@ jobs:
     steps:
 
     - name: mingw 7.3
-      uses: JoseQuintas/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v2
       with:
          workflow: mingw_0703.yml
          workflow_conclusion: success
@@ -31,7 +31,7 @@ jobs:
          repo: JoseQuintas/addons
 
     - name: harbour 3.4
-      uses: JoseQuintas/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v2
       with:
          workflow: hb34_0703.yml
          workflow_conclusion: success
